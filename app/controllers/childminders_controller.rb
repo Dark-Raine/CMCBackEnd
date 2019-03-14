@@ -1,0 +1,2 @@
+class ChildmindersController < ApplicationController
+end

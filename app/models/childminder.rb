@@ -1,0 +1,2 @@
+class Childminder < ApplicationRecord
+end
