@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative 'csvSeeder/csv_test.rb'
+User.destroy_all
+Child.destroy_all
+Childminder.destroy_all
+
+Childminder.create(CsvSeed.csv_to_hash)

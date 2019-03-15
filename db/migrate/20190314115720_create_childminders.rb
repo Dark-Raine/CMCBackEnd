@@ -2,7 +2,7 @@ class CreateChildminders < ActiveRecord::Migration[5.2]
   def change
     create_table :childminders do |t|
       t.string :name
-      t.integer :number
+      t.string :number
       t.string :email
       t.string :address
       t.text :bio
