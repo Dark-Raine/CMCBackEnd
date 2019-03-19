@@ -7,6 +7,11 @@ class ApplicationController < ActionController::API
         id = decoded_token['id']
         User.find_by(id: id)
     end
+
+    def get_current_minder
+        id = decoded_token['id']
+        Childminder.find_by(id: id)
+    end
     
     def decoded_token
         token = request.headers['Authorization']
@@ -20,5 +25,5 @@ class ApplicationController < ActionController::API
     def secret
         ENV['SECRET']
     end
-    
+
 end
