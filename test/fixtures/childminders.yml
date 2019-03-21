@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  number: 1
+  email: MyString
+  address: MyString
+  bio: MyString
+  dayrate: 1
+  openingtime: MyString
+  closingtime: MyString
+  daysopen: MyString
+
+two:
+  name: MyString
+  number: 1
+  email: MyString
+  address: MyString
+  bio: MyString
+  dayrate: 1
+  openingtime: MyString
+  closingtime: MyString
+  daysopen: MyString
