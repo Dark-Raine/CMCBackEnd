@@ -23,7 +23,8 @@ class ChildminderSerializer < ActiveModel::Serializer
       {
         content: review.content,
         reviewer: review.user.name,
-        username: review.user.username
+        username: review.user.username,
+        id: review.id
       }
     end
   end
