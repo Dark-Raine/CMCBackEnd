@@ -4,6 +4,11 @@ class ChildmindersController < ApplicationController
         render json: @users
     end
 
+    def show
+        @user = Childminder.find_by(id: params[:id])
+        render json: @user
+    end
+
     def register
         @user = Childminder.new(username: params[:username], password: params[:password], name: params[:name])
         @user.save
@@ -44,6 +49,7 @@ class ChildmindersController < ApplicationController
 
     def search
         @minders = Childminder.search(params[:search])
+        
         if @minders
             render json: @minders
         else
