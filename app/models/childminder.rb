@@ -15,4 +15,14 @@ class Childminder < ApplicationRecord
         # byebug
         all
     end
+
+    def avg_rating
+        my_total_rating = 0
+        self.reviews.each do |review|
+            if review.rating
+                my_total_rating+= review.rating
+            end
+        end
+        my_total_rating == 0 ? 0 : (my_total_rating/self.reviews.length).to_f 
+    end
 end

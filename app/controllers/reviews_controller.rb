@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     def create
         @user = get_current_user
-        @review = Review.new(content: params[:content], childminder_id: params[:id], user_id: @user.id)
+        @review = Review.new(content: params[:content], childminder_id: params[:id], user_id: @user.id, rating: params[:rating])
         if @user && @review
             @review.save
             render json: {message: "created"}, status: 201
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
         
         if @user === @review.user
             @review.destroy
-            render json: {message: "updated"}, status: 201
+            render json: {message: "deleted"}, status: 201
         else
             render json: {error: "failed"}, status: 401
         end

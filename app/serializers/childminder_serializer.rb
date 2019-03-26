@@ -14,6 +14,7 @@ class ChildminderSerializer < ActiveModel::Serializer
       openingtime: object.openingtime,
       closingtime: object.closingtime,
       daysopen: object.daysopen,
+      averagerating: object.avg_rating,
       reviews: parse_reviews(object.reviews)
     }
   end
@@ -24,8 +25,20 @@ class ChildminderSerializer < ActiveModel::Serializer
         content: review.content,
         reviewer: review.user.name,
         username: review.user.username,
-        id: review.id
+        rating: review.rating.to_f,
+        id: review.id,
+        likedby: liked_list(review.likes)
       }
     end
   end
+
+  def liked_list(liked_by)
+    parsed = liked_by.map do |liker|
+      {
+        username: liker.user.username,
+        id: liker.id.to_i
+      }
+    end
+  end
+  
 end
